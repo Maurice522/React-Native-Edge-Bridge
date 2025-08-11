@@ -29,7 +29,7 @@ npx react-native run-android
 ```
 #### 2️⃣ Configure Adobe App ID & Assurance Link
 ```
-Open your main config file and update these values:
+Open app > index.js file and update these values:
 
 const DEFAULT_LINK = "YOUR ASSURANCE LINK HERE"; // Example: testadobe://?adb_validation_sessionid=xxxxxxxx
 MobileCore.initializeWithAppId("YOUR APP ID HERE"); // Example: launch-xxxxxxxxxxxx
@@ -41,14 +41,11 @@ App ID → In Adobe Launch / Data Collection UI, under your environment settings
 Assurance Link → In Adobe Assurance UI when you create a new session.
 
 #### 3️⃣🛠 Using the App
-Connect to Assurance
 
-Click Connect to Assurance.
+Click on Connect to Assurance.
 
 Enter your Assurance session link OR choose the default link.
 
-If a session is already running, you'll see a popup.
-
-Send Tracking Events
+Send Tracking Events.
 
 trackAction and trackState are available with custom data payloads.
