@@ -1,50 +1,86 @@
-# Welcome to your Expo app 👋
+# 📱 Expo Adobe Assurance Integration
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project is an [Expo](https://expo.dev) React Native app that integrates **Adobe Experience Platform Assurance** and allows connecting to an Assurance session via a custom link.  
+It also demonstrates **trackAction** and **trackState** usage with a `HashMap` style payload.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
+- Connect to Adobe Assurance using a user-provided link or a default link.
+- Show popup if an Assurance session is already running.
+- Send `trackAction` and `trackState` events.
+- Support for `HashMap`-style payloads.
+- Works on **physical devices** as well as emulators.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## ⚙️ Setup Instructions
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### 1️⃣ Install Dependencies
 ```bash
+npm install
+If you get tslib missing errors when running, do the following:
+
+bash
+Copy
+Edit
+npx expo prebuild
+npm install @adobe/react-native-aepcore @adobe/react-native-aepedgebridge tslib
+npx react-native run-android
+2️⃣ Configure Adobe App ID & Assurance Link
+Open your main config file and update these values:
+
+javascript
+Copy
+Edit
+const DEFAULT_LINK = "YOUR ASSURANCE LINK HERE"; // Example: testadobe://?adb_validation_sessionid=xxxxxxxx
+MobileCore.initializeWithAppId("YOUR APP ID HERE"); // Example: launch-xxxxxxxxxxxx
+Where to find these:
+
+App ID → In Adobe Launch / Data Collection UI, under your environment settings.
+
+Assurance Link → In Adobe Assurance UI when you create a new session.
+
+3️⃣ Run the App on Physical Device
+Ensure PC and phone are on the same Wi-Fi network, then run:
+
+bash
+Copy
+Edit
+npx react-native run-android
+Or, for Expo:
+
+bash
+Copy
+Edit
+npx expo start
+Scan the QR code with the Expo Go app or your camera (if using a development build).
+
+🛠 Using the App
+Connect to Assurance
+
+Click Connect to Assurance.
+
+Enter your Assurance session link OR choose the default link.
+
+If a session is already running, you'll see a popup.
+
+Send Tracking Events
+
+trackAction and trackState are available with custom data payloads.
+
+📚 Useful Links
+Adobe Assurance Documentation
+
+Adobe Experience Platform Mobile SDK
+
+Expo Documentation
+
+React Native Docs
+
+🧹 Reset Project (Optional)
+bash
+Copy
+Edit
 npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This moves the starter code to app-example and gives you a fresh app directory.
