@@ -3,7 +3,7 @@
 This project is an [Expo](https://expo.dev) React Native app that integrates **Adobe Experience Platform** using Edge Bridge and allows connecting to an Assurance session via a custom link.
 You can use to demonstrates **trackAction** and **trackState** usage with a `HashMap` style payload.
 
-<img src="./Combo_react_native_edge_bridge.png" alt="React Native Edge Bridge" width="400"/>
+<img src="./react_native_edge_bridge_combo.png" alt="React Native Edge Bridge" width="500"/>
 
 ---
 
